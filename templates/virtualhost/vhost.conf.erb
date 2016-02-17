@@ -22,7 +22,7 @@
 <% end -%>
 
     ErrorLog  <%= scope.lookupvar('apache::log_dir') %>/<%= @name %>-error_log
-    CustomLog <%= scope.lookupvar('apache::log_dir') %>/<%= @name %>-access_log <%= logformat %>
+    CustomLog <%= scope.lookupvar('apache::log_dir') %>/<%= @name %>-access_log <%= @logformat %>
 
 <% if @bool_passenger -%>
     PassengerHighPerformance <%= @bool_passenger_high_performance ? "On" : "Off" %>
