@@ -102,6 +102,9 @@
 #   Set one or more proxy and reverse proxy directives. (e.g. '/manager http://localhost:8080/manager'
 #   or ['/manager http://localhost:8080/manager', '/alias3 http://remote.server.com/alias'])
 #
+# [*logformat*]
+#   Set the log format on the CustomLog directive, (e.g. 'common' or 'combined')
+#
 # == Examples:
 #  apache::vhost { 'site.name.fqdn':
 #    docroot  => '/path/to/docroot',
@@ -156,7 +159,8 @@ define apache::vhost (
   $directory_allow_override     = 'None',
   $directory_require            = '',
   $aliases                      = '',
-  $proxy_aliases                = ''
+  $proxy_aliases                = '',
+  $logformat                    = 'common'
 ) {
 
   $ensure = $enable ? {
